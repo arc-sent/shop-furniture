@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,192 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.LogoText {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 25px;
+  text-align: center;
+  color: #0abe06;
+}
+
+.TitleCard {
+  font-weight: 600;
+  font-size: 25px;
+  color: #000;
+  margin: 10px;
+}
+
+.TextCard {
+  font-weight: 300;
+  font-size: 12px;
+  text-align: center;
+  color: #000;
+  margin: 0px 16px;
+}
+
+.buttonCard {
+  height: 25px;
+  font-size: 20px;
+  color: #FF2525;
+  background-color: rgba(249, 249, 249, 0.6);
+  border: none;
+}
+
+.nav {
+  display: flex;
+}
+
+.navText {
+  font-weight: 600;
+  font-size: 18px;
+  color: #000;
+  margin-right: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.active {
+  color: #FF2525;
+}
+
+.HeadingAbout {
+  font-weight: 600;
+  font-size: 42px;
+  color: #000;
+  text-align: center;
+  margin: 110px 0px;
+}
+
+.SofaAbout {
+  width: 760px;
+  height: 470px;
+}
+
+.wrappAboutTheCompany {
+  display: flex;
+  align-items: center;
+}
+
+.textAboutTheCompany {
+  font-weight: 400;
+  font-size: 19px;
+  margin-left: 45px;
+}
+
+.textAboutTheCompany>span {
+  font-weight: 600;
+}
+
+.wrapperCardAbout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.HeadingCardAbout {
+  font-weight: 500;
+  font-size: 27px;
+  text-align: center;
+  color: #000;
+}
+
+
+
+.WrapperCard {
+  text-align: center;
+  width: 300px;
+}
+
+.wrapperAboutVerticalCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.wrapperAboutVerticalCard2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.blockInfoAboutVerticalCard {
+  width: 465px;
+  margin-bottom: 150px;
+}
+
+.blockInfoAboutVerticalCard>h1 {
+  font-weight: 600;
+  font-size: 50px;
+  color: #000;
+}
+
+.blockInfoAboutVerticalCard>p {
+  font-weight: 400;
+  font-size: 20px;
+  color: #000;
+}
+
+.Footer {
+  width: 100%;
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 50px 0px;
+  margin-top: 200px;
+}
+
+.HeaderFooter {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.TitleFooter {
+  font-weight: 600;
+  font-size: 38px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.FooterWrapperInfo {
+  display: flex;
+  justify-content: center;
+}
+
+.textAboutFooter {
+  width: 280px;
+  text-align: center;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 12px;
+  color: #ffdfdf;
+}
+
+.num {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.textAboutFooterLeft{
+  margin-right: 200px;
 }
