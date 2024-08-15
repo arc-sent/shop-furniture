@@ -10,10 +10,13 @@ import Pedestal from '../../photos/pedestal2.png';
 import Footer from "../Footer";
 import { useContext } from "react";
 import { FurnitureContext } from "../../createContext";
+import { useEffect } from "react";
 
 export default function AboutBody() {
     const { setActive } = useContext(FurnitureContext);
-    setActive(1)
+    useEffect(() => {
+        setActive(1);
+    }, [setActive]); 
     return (
         <>
             <Wrapper>

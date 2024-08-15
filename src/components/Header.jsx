@@ -1,33 +1,18 @@
 import React from 'react';
 import { useContext, useEffect, useState } from "react"
-import { Button, Modal } from 'antd';
 import { FurnitureContext } from "../createContext";
-import { FakeFetch } from "../fakeFetch";
-import CardBacket from './componentHeader/CardBasket';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import ModalBacket from './componentHeader/ModalBacket';
+import ModalPhone from './componentHeader/ModalPhone';
 export default function Header() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { furnitureItems, setFurnitureItems , active , setActive } = useContext(FurnitureContext);
+    const { furnitureItems, setFurnitureItems, active, setActive } = useContext(FurnitureContext);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [resultPrice, setResultPrice] = useState(0);
     const [price, setPrice] = useState([]);
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-    const handleOk = () => {
-        setConfirmLoading(true)
-        FakeFetch(furnitureItems, resultPrice).then(result => {
-            setIsModalOpen(false);
-            setConfirmLoading(false)
-            setFurnitureItems([]);
-            setResultPrice(0)
-            console.log(result)
-        })
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
+    const [isModalPhone, setIsModalPhone] = useState(false);
+
     useEffect(() => {
         if (price.length === 0) {
             setResultPrice(0);
@@ -35,8 +20,6 @@ export default function Header() {
         const totalPrice = price.reduce((acc, item) => acc + item.price, 0);
         setResultPrice(totalPrice);
     }, [price]);
-
-    let styleOkButtonProps = resultPrice > 1 ? { backgroundColor: '#FF2525', color: 'white' } : { display: 'none' }
 
 
     return (
@@ -63,9 +46,11 @@ export default function Header() {
                             <p className={active === 0 ? 'navText active' : 'navText'}>Главная</p>
                         </Link>
                         <Link to='/about' style={{ textDecoration: 'none' }}>
-                        <p className={active === 1 ? 'navText active' : 'navText'}>О нас</p>
+                            <p className={active === 1 ? 'navText active' : 'navText'}>О нас</p>
                         </Link>
-                        <p className = 'navText'>Контакты</p>
+                        <p className='navText' onClick={()=>{
+                            setIsModalPhone(true);
+                        }}>Контакты</p>
                     </div>
 
                     <div style={{ cursor: 'pointer' }} onClick={() => setIsModalOpen(true)}>
@@ -77,47 +62,24 @@ export default function Header() {
                 </div >
             </div >
             {isModalOpen &&
-                <>
-                    <Modal
-                        title="Корзина"
-                        open={isModalOpen}
-                        onOk={handleOk}
-                        onCancel={handleCancel}
-                        okButtonProps={{ style: styleOkButtonProps }}
-                        cancelButtonProps={{ style: { backgroundColor: '#FF2525', color: 'white' } }}
-                        okText='Купить'
-                        cancelText='Закрыть'
-                        style={{ maxHeight: '80vh', overflowY: 'auto' }}
-                        confirmLoading = {confirmLoading}
-                    >
-                        <div style={{ maxHeight: '60vh', overflowY: 'auto' }}>
-                            <div>
-                                {furnitureItems.map((item) => {
-                                    return (
-                                        <React.Fragment key={item.id}>
-                                            <CardBacket obj={item} setPrice={setPrice} price={price} />
-                                        </React.Fragment>
-                                    );
-                                })}
-                                {resultPrice > 0
-                                    ?
-                                    <p style={{
-                                        fontWeight: '600',
-                                        fontSize: '25px',
-                                        color: '#0abe06',
-                                        margin: '0',
-                                        textAlign: 'end'
-                                    }
-                                    }>{resultPrice}$</p>
-                                    :
-                                    <p>Ваша корзина пустая!</p>
-                                }
-
-                            </div>
-                        </div>
-                    </Modal>
-
-                </>}
+                <ModalBacket
+                    setIsModalOpen={setIsModalOpen}
+                    isModalOpen={isModalOpen}
+                    setConfirmLoading={setConfirmLoading}
+                    confirmLoading={confirmLoading}
+                    resultPrice={resultPrice}
+                    setResultPrice={setResultPrice}
+                    price={price}
+                    setPrice={setPrice}
+                />
+            }
+            {
+                isModalPhone &&
+                <ModalPhone
+                    isModalPhone={isModalPhone}
+                    setIsModalPhone={setIsModalPhone}
+                />
+            }
         </>
     )
 }

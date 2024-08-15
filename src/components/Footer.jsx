@@ -22,7 +22,7 @@ export default function Footer() {
                         </svg>
 
 
-                        <a className="num" href="num:+7(978)-999-99-00">+7(978)-999-99-00</a>
+                        <a className="num" href="tel:+7(978)-999-99-00">+7(978)-999-99-00</a>
                     </div>
 
                     <div >
@@ -37,7 +37,7 @@ export default function Footer() {
                         </svg>
 
 
-                        <a className="num" href="num:+7(978)-888-99-12">+7(978)-888-99-12</a>
+                        <a className="num" href="tel:+7(978)-888-99-12">+7(978)-888-99-12</a>
                     </div>
 
                 </div>

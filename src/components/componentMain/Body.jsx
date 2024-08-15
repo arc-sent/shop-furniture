@@ -3,12 +3,14 @@ import welcomeImage from '../../photos/WelcomePage.png'
 import CardFurniture from "./componentBody/CardFurniture";
 import { useContext } from "react";
 import { FurnitureContext } from '../../createContext';
-import Footer from '../Footer';
 
+import { useEffect } from "react";
 
 export default function Body() {
     const { products, furnitureItems , setActive } = useContext(FurnitureContext);
-    setActive(0)
+    useEffect(() => {
+        setActive(0);
+    }, [setActive]);
     return (
         <>
             <div style={{ marginTop: '110px' }}>

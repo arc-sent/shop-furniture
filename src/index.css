@@ -181,7 +181,7 @@ code {
 .text {
   font-weight: 400;
   font-size: 12px;
-  color: #ffdfdf;
+  color: #fff;
 }
 
 .num {
@@ -191,8 +191,31 @@ code {
   font-size: 15px;
   color: #fff;
   margin-left: 10px;
+  transition: 0.3s;
 }
 
-.textAboutFooterLeft{
+.num:hover {
+  color: #FF2525;
+}
+
+.textAboutFooterLeft {
   margin-right: 200px;
+}
+
+.numModal {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  color: #000;
+  text-align: center;
+}
+
+.numModal:hover {
+  color: #FF2525;
+}
+
+.HeaderModal {
+  font-size: 25px;
+  text-align: center;
+  font-weight: 500;
 }
